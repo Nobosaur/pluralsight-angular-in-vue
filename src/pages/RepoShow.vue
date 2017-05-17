@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="repo of repos">
+                <tr v-for="repo of reposSorted">
                     <td>
                         <router-link :to="{ path: user.login  + '/repo/' + repo.name }">{{repo.name}}</router-link>
                     </td>
@@ -36,16 +36,29 @@
 
 <script>
     import Axios from 'axios';
+    import Lodash from 'lodash';
 
     export default {
         data: () => ({
             user: [],
             repos: [],
             errors: [],
-            sortby: "Name"
+            sortby: "name"
         }),
 
         props: ["id"],
+
+        computed: {
+            reposSorted() {
+                if (this.sortby == "name") {
+                    return this.repos.sort();
+                } else if (this.sortby == "stargazers_count") {
+                    return Lodash.sortBy(this.repos, [function(o) { return o.stargazers_count; }]).reverse();
+                } else {
+                    return Lodash.sortBy(this.repos, [function(o) { return o.language; }]);
+                }
+            }
+        },
 
         // Fetches posts when the component is created.
         created() {
