@@ -1,9 +1,9 @@
 <template>
-    <h1>I'm home page</h1>
+    <div>Reponame: {{ reponame }}</div>
 </template>
 
 <script>
     export default {
-        
+        props: ["reponame"]
     }
 </script>
