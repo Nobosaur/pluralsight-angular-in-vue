@@ -21,7 +21,7 @@
             <tbody>
                 <tr v-for="repo of reposSorted">
                     <td>
-                        <router-link :to="{ path: user.login  + '/repo/' + repo.name }">{{repo.name}}</router-link>
+                        <router-link :to="{ path: user.login  + '/repo/' + repo.name}">{{repo.name}}</router-link>
                     </td>
                     <td>{{repo.stargazers_count}}</td>
                     <td>{{repo.language}}</td>

@@ -23,5 +23,6 @@ export default new Router({
         component: RepoDetails, 
         props: true
     }
-  ]
+  ],
+  mode: 'history'
 })
