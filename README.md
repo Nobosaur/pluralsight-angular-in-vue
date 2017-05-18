@@ -1,6 +1,6 @@
-# pluralsight-angular-in-vue
+# Pluralsight Angluar1 training path done in Vue
 
-> A Pluralsight application wich fetch data from github made in Vue
+> Pluralsight training application wich fetch data from git doe in Vue2
 
 ## Build Setup
 
